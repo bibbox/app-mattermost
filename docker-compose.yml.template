@@ -49,7 +49,7 @@ services:
       - MM_SQLSETTINGS_DRIVERNAME=postgres
       - MM_SQLSETTINGS_DATASOURCE=postgres://§§POSTGRES_USER_ENV:§§POSTGRES_USER_PW@postgres:5432/mattermost?sslmode=disable&connect_timeout=10
       - MM_BLEVESETTINGS_INDEXDIR=/mattermost/bleve-indexes
-      - MM_SERVICESETTINGS_SITEURL=http://§§INSTANCE.silicolabv4.bibbox.org
+      - MM_SERVICESETTINGS_SITEURL=http://§§INSTANCE.§§BASEURL
     volumes:
       - ./data/mattermost/config:/mattermost/config:rw
       - ./data/mattermost/data:/mattermost/data:rw
