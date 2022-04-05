@@ -38,7 +38,7 @@ services:
       - 8065:8065
     proxy:
       DISPLAYNAME: APP name
-      TEMPLATE: default
+      TEMPLATE: websocket
       TYPE: PRIMARY
       URLPREFIX: §§INSTANCE
     networks:
