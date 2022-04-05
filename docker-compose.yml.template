@@ -41,6 +41,7 @@ services:
       TEMPLATE: websocket
       TYPE: PRIMARY
       URLPREFIX: §§INSTANCE
+      PATH_TO_SOCKET: 'api/v4/websocket'
     networks:
       - bibbox-default-network
     tmpfs:
