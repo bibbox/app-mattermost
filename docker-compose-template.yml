@@ -1,0 +1,60 @@
+version: '3'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services: 
+  §§INSTANCE-postgres-mattermost:
+    container_name: §§INSTANCE-postgres-mattermost
+    image: postgres:13-alpine
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    networks:
+    - bibbox-default-network
+    volumes:
+      - ./data/db/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=§§POSTGRES_USER_ENV
+      - POSTGRES_PASSWORD=§§POSTGRES_USER_PW
+      - POSTGRES_DB=mattermost
+
+  §§INSTANCE-mattermost:
+    depends_on:
+      - §§INSTANCE-postgres-mattermost
+    container_name: mattermost-local
+    image: mattermost/mattermost-team-edition:6.3
+    links:
+      - §§INSTANCE-postgres-mattermost:postgres
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8065:8065
+    proxy:
+      DISPLAYNAME: APP name
+      TEMPLATE: default
+      TYPE: PRIMARY
+      URLPREFIX: §§INSTANCE
+    networks:
+      - bibbox-default-network
+    tmpfs:
+      - /tmp
+    environment:
+      - MM_SQLSETTINGS_DRIVERNAME=postgres
+      - MM_SQLSETTINGS_DATASOURCE=postgres://§§POSTGRES_USER_ENV:§§POSTGRES_USER_PW@postgres:5432/mattermost?sslmode=disable&connect_timeout=10
+      - MM_BLEVESETTINGS_INDEXDIR=/mattermost/bleve-indexes
+      - MM_SERVICESETTINGS_SITEURL=http://§§INSTANCE.silicolabv4.bibbox.org
+    volumes:
+      - ./data/mattermost/config:/mattermost/config:rw
+      - ./data/mattermost/data:/mattermost/data:rw
+      - ./data/mattermost/logs:/mattermost/logs:rw
+      - ./data/mattermost/plugins:/mattermost/plugins:rw
+      - ./data/mattermost/client/plugins:/mattermost/client/plugins:rw
+      - ./data/mattermost/bleve-indexes:/mattermost/bleve-indexes:rw
+    

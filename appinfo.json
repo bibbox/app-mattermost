@@ -1,0 +1,11 @@
+{
+	"name": "Mattermost 6.3",
+	"short_name": "Mattermost",
+	"version": "6.3.x",
+	"description": "Slack copycat version 6.2 done by some German Copycats",
+        "short_description": "Mirosoft Teams wnats their color theme back",
+	"catalogue_url": "",
+	"application_url": "https://mattermost.com/",
+	"tags": ["Socail"],
+	"application_documentation_url": "https://api.mattermost.com/"
+}

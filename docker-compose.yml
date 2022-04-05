@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  postgres-mattermost-local:
+    container_name: postgres-mattermost-local
+    image: postgres:13-alpine
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    volumes:
+      - ./data/db/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
+      - POSTGRES_DB=mattermost
+
+  mattermost-local:
+    depends_on:
+      - postgres-mattermost-local
+    container_name: mattermost-local
+    image: mattermost/mattermost-team-edition:6.3
+    links:
+      - postgres-mattermost-local:postgres
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8065:8065
+    read_only: false
+    tmpfs:
+      - /tmp
+    environment:
+      - MM_SQLSETTINGS_DRIVERNAME=postgres
+      - MM_SQLSETTINGS_DATASOURCE=postgres://mmuser:mmuser_password@postgres:5432/mattermost?sslmode=disable&connect_timeout=10
+      - MM_BLEVESETTINGS_INDEXDIR=/mattermost/bleve-indexes
+      - MM_SERVICESETTINGS_SITEURL=http://localhost
+    volumes:
+      - ./data/mattermost/config:/mattermost/config:rw
+      - ./data/mattermost/data:/mattermost/data:rw
+      - ./data/mattermost/logs:/mattermost/logs:rw
+      - ./data/mattermost/plugins:/mattermost/plugins:rw
+      - ./data/app/mattermost/client/plugins:/mattermost/client/plugins:rw
+      - ./data/mattermost/bleve-indexes:/mattermost/bleve-indexes:rw
+    
