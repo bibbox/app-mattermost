@@ -38,10 +38,9 @@ services:
       - 8065:8065
     proxy:
       DISPLAYNAME: APP name
-      TEMPLATE: websocket
+      TEMPLATE: default
       TYPE: PRIMARY
       URLPREFIX: §§INSTANCE
-      PATH_TO_SOCKET: 'api/v4/websocket'
     networks:
       - bibbox-default-network
     tmpfs:
