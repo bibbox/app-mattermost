@@ -36,11 +36,12 @@ services:
       - no-new-privileges:true
     ports:
       - 8065:8065
-    proxy:
+     proxy:
       DISPLAYNAME: APP name
-      TEMPLATE: default
+      TEMPLATE: websocket
       TYPE: PRIMARY
       URLPREFIX: §§INSTANCE
+      PATH_TO_SOCKET: 'api/v4/websocket'
     networks:
       - bibbox-default-network
     tmpfs:
