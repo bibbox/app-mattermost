@@ -36,8 +36,8 @@ services:
       - no-new-privileges:true
     ports:
       - 8065:8065
-     proxy:
-      DISPLAYNAME: APP name
+    proxy:
+      DISPLAYNAME: mattermost
       TEMPLATE: websocket
       TYPE: PRIMARY
       URLPREFIX: §§INSTANCE
