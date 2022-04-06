@@ -27,7 +27,7 @@ services:
   §§INSTANCE-mattermost:
     depends_on:
       - §§INSTANCE-postgres-mattermost
-    container_name: mattermost-local
+    container_name: §§INSTANCE-mattermost
     image: mattermost/mattermost-team-edition:6.3
     links:
       - §§INSTANCE-postgres-mattermost:postgres
