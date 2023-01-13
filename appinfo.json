@@ -1,8 +1,8 @@
 {
-	"name": "Mattermost 6.3",
+	"name": "Mattermost 7.7",
 	"short_name": "Mattermost",
-	"version": "6.3.x",
-	"description": "Slack copycat version 6.2 done by some German Copycats",
+	"version": "7.7.x",
+	"description": "Slack copycat version 7.7 done by some German Copycats",
         "short_description": "Mirosoft Teams wnats their color theme back",
 	"catalogue_url": "",
 	"application_url": "https://mattermost.com/",
