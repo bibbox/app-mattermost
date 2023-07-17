@@ -2,10 +2,10 @@
 	"name": "Mattermost 7.7",
 	"short_name": "Mattermost",
 	"version": "7.7.x",
-	"description": "Slack copycat version 7.7 done by some German Copycats",
-        "short_description": "Mirosoft Teams wnats their color theme back",
+	"description": "Secure collaboration for technical teams",
+        "short_description": "Collaboration plattform",
 	"catalogue_url": "",
 	"application_url": "https://mattermost.com/",
-	"tags": ["Social"],
+	"tags": ["Social","Collaboration"],
 	"application_documentation_url": "https://api.mattermost.com/"
 }
