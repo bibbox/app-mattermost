@@ -1,7 +1,7 @@
 {
-	"name": "Mattermost 7.7",
+	"name": "Mattermost 8.0.2",
 	"short_name": "Mattermost",
-	"version": "7.7.x",
+	"version": "8.0.x",
 	"description": "Secure collaboration for technical teams",
         "short_description": "Collaboration plattform",
 	"catalogue_url": "",
