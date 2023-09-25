@@ -3,7 +3,7 @@
        "id": "POSTGRES_USER_ENV",
        "display_name":"POSTGRES_USER",
        "type":"text, number, password",
-       "default_value":"Default Value",
+       "default_value":"user",
        "description":"User for Postges DB",
        "min_length": "1",
        "max_length": "128"
@@ -12,7 +12,7 @@
         "id": "POSTGRES_USER_PW",
         "display_name":"POSTGRES_PassWord",
         "type":"text, number, password",
-        "default_value":"Default Value",
+        "default_value":"changethispasswordinproductionenvironments",
         "description":"Password for Postgres DB",
         "min_length": "1",
         "max_length": "128"
