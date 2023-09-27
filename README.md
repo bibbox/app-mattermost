@@ -1,29 +1,51 @@
-# Mattermost BIBBOX application
+# mattermost BIBBOX application
 
-## Standalone installation
-Clone the github repository, chmod the data foler and run docker-compose up. If necessary change the ports and volume mounts in `docker-compose.yml`.
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/ "BIBBOX App Store") or standalone. 
 
-`sudo git clone https://github.com/bibbox/app-mattermost`
+- after the docker installation follow these [instructions](INSTALL-APP.md)
 
-`sudo chmod 777 -R data/`
+## Standalone Installation 
 
-`docker-compose up`
+Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
+
+```
+git clone https://github.com/bibbox/app-mattermost
+cd app-mattermost
+docker-compose up -d
+```
+
+The main app can be opened and set up at
+```
+http://localhost:8065
+```
 
 ## Install within BIBBOX
 
-Within BIBBOX you can use the [BIBBOX](https://bibbox.readthedocs.io/en/latest/) to install a lot of software tools. After the installation is finished you can start your application in the dashboard. 
+Visit the BIBBOX page and find the App by its name in the Store. Click on the symbol and select Install. Then fill the parameters below and name your app click install again.
 
-Create an account and off you go 
+## Docker Images used
+  - [postgres](https://hub.docker.com/r/postgres) 
+  - [mattermost/mattermost-team-edition](https://hub.docker.com/r/mattermost/mattermost-team-edition) 
 
-## Docker Images Used
-* [postgres:13-alpine](https://hub.docker.com/layers/postgres/library/postgres/13-alpine/images/sha256-0d3137d83b50573cc17d5998a62f79075d4088daec4d408a240e960a99f5da4e?context=explore)
-* [mattermost/mattermost-team-edition:6.3](https://hub.docker.com/layers/mattermost-team-edition/mattermost/mattermost-team-edition/6.3/images/sha256-604f5f146213e2220fb5caa9c4e44553e68904d1bada7fd4d6ff471f96bb2af4?context=explore)
 
+ 
+## Install Environment Variables
+  - POSTGRES_USER_ENV = User for Postges DB
+  - POSTGRES_USER_PW = Password for Postgres DB
+
+  
+The default values for the standalone installation are:
+  - POSTGRES_USER_ENV = user
+  - POSTGRES_USER_PW = changethispasswordinproductionenvironments
+
+  
 ## Mounted Volumes
-
-- ./data/mattermost/config:/mattermost/config:rw
-- ./data/mattermost/data:/mattermost/data:rw
-- ./data/mattermost/logs:/mattermost/logs:rw
-- ./data/mattermost/plugins:/mattermost/plugins:rw
-- ./data/app/mattermost/client/plugins:/mattermost/client/plugins:rw
-- ./data/mattermost/bleve-indexes:/mattermost/bleve-indexes:rw
+### postgres Conatiner
+  - *./data/db/postgresql/data:/var/lib/postgresql/data*
+### mattermost/mattermost-team-edition Conatiner
+  - *./data/mattermost/config:/mattermost/config:rw*
+  - *./data/mattermost/data:/mattermost/data:rw*
+  - *./data/mattermost/logs:/mattermost/logs:rw*
+  - *./data/mattermost/plugins:/mattermost/plugins:rw*
+  - *./data/app/mattermost/client/plugins:/mattermost/client/plugins:rw*
+  - *./data/mattermost/bleve-indexes:/mattermost/bleve-indexes:rw*
