@@ -41,9 +41,9 @@ The default values for the standalone installation are:
 
   
 ## Mounted Volumes
-### postgres Conatiner
+### postgres Container
   - *./data/db/postgresql/data:/var/lib/postgresql/data*
-### mattermost/mattermost-team-edition Conatiner
+### mattermost/mattermost-team-edition Container
   - *./data/mattermost/config:/mattermost/config:rw*
   - *./data/mattermost/data:/mattermost/data:rw*
   - *./data/mattermost/logs:/mattermost/logs:rw*
