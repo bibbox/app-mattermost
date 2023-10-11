@@ -1,5 +1,5 @@
 {
-	"name": "Mattermost 7.7",
+	"name": "Mattermost",
 	"short_name": "Mattermost",
 	"version": "7.7.x",
 	"description": "Secure collaboration for technical teams",
@@ -7,5 +7,6 @@
 	"catalogue_url": "",
 	"application_url": "https://mattermost.com/",
 	"tags": ["Social","Collaboration"],
-	"application_documentation_url": "https://api.mattermost.com/"
+	"application_documentation_url": "https://api.mattermost.com/",
+	"instance_information": "work in progress"
 }
