@@ -1,12 +1,12 @@
 {
 	"name": "Mattermost",
 	"short_name": "Mattermost",
-	"version": "7.7.x",
+	"version": "v7.7",
 	"description": "Secure collaboration for technical teams",
         "short_description": "Collaboration plattform",
 	"catalogue_url": "",
 	"application_url": "https://mattermost.com/",
 	"tags": ["Social","Collaboration"],
 	"application_documentation_url": "https://api.mattermost.com/",
-	"instance_information": "work in progress"
+	"instance_information": "<p>Secure collaboration for technical teams</p>"
 }
