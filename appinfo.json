@@ -1,7 +1,7 @@
 {
 	"name": "Mattermost",
 	"short_name": "Mattermost",
-	"version": "v7.7",
+	"version": "v8.0.2",
 	"description": "Secure collaboration for technical teams",
         "short_description": "Collaboration plattform",
 	"catalogue_url": "",

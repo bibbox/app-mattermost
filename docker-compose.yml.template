@@ -28,7 +28,7 @@ services:
     depends_on:
       - §§INSTANCE-postgres-mattermost
     container_name: §§INSTANCE-mattermost
-    image: mattermost/mattermost-team-edition:release-7.7
+    image: mattermost/mattermost-team-edition:8.0.2-rc1
     links:
       - §§INSTANCE-postgres-mattermost:postgres
     restart: unless-stopped
